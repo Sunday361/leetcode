@@ -1,9 +1,8 @@
 #ifndef CPP_LEETCODE_204_H
 #define CPP_LEETCODE_204_H
-/* 204. 计数质数
+/** 204. 计数质数
  * */
 #include "allheaders.h"
-
 class Solution {
 public:
     int countPrimes(int n) {
