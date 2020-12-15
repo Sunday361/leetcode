@@ -9,6 +9,7 @@
  * 若要新建数组则必须要满足 nums[i] + 1, nums[i] + 2 仍存在
  *  *
  * */
+
 class Solution{
 public:
     bool isPossible(vector<int>& nums) {
