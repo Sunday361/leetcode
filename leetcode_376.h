@@ -1,7 +1,7 @@
 #ifndef CPP_LEETCODE_376_H
 #define CPP_LEETCODE_376_H
 
-/* 376. 摆动序列
+/** 376. 摆动序列
  * */
 #include "allheaders.h"
 class Solution {
