@@ -5,7 +5,7 @@
 #ifndef CPP_LEETCODE_767_H
 #define CPP_LEETCODE_767_H
 #include "allheaders.h"
-/* 767. 重构字符串
+/** 767. 重构字符串
  * 优先队列初始化
  * priority_queue<char, vector<char>, decltype(cmp)> c{cmp};
  * 或者 priority_queue<char, vector<char>, cmp> c; 但是此时 cmp 需要声明为一个仿函数
