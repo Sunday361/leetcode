@@ -1,7 +1,7 @@
 #ifndef CPP_LEETCODE_435_H
 #define CPP_LEETCODE_435_H
 
-/* 435. 无重叠区间
+/** 435. 无重叠区间
  * 求最多有多少非重叠区间
  * 贪心算法获得局部最优解
  * */
