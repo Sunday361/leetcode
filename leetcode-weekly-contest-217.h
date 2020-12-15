@@ -2,7 +2,6 @@
 #define CPP_LEETCODE_WEEKLY_CONTEST_217_H
 
 #include "allheaders.h"
-
 class Solution {
 public:
     /* 5614. 找出最具竞争力的子序列
