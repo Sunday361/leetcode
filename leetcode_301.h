@@ -5,7 +5,7 @@
 #ifndef CPP_LEETCODE_301_H
 #define CPP_LEETCODE_301_H
 #include "allheaders.h"
-/** 301. 删除无效的括号
+/** 301. 删除无效的括号 （未完成）
  * */
 vector<string> ans;
 void dfs(string &s, int u, string res, int cnt, int l, int r){//cnt为当前左-右的值 l为需要删除的左括号数量 r为右
