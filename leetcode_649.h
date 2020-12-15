@@ -6,7 +6,7 @@
 #define LEETCODE_LEETCODE_649_H
 
 /** 649. Dota2 参议院
- *
+ * 将当前的senate插到最后 直到不存在D,R
  * */
 #include "allheaders.h"
 class Solution {
