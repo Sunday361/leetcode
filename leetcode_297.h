@@ -2,7 +2,8 @@
 #define CPP_LEETCODE_297_H
 
 #include "allheaders.h"
-
+/** 297. 二叉树的序列化与反序列化
+ * */
 class Codec {
 public:
     string serialize(TreeNode* root) {
