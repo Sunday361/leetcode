@@ -19,7 +19,7 @@ public:
         if (S.size() < 3) return {};
 
         for (int i = 1; i < 11 && i <= S.size() / 2; i++) {
-            //cout << i << endl;
+            cout << i << endl;
             if (S[0] == '0' && i != 1) return {};
             s1 = S.substr(0, i);
             f1 = stoll(s1);
