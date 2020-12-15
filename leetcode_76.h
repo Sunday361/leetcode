@@ -7,6 +7,7 @@
  *  向右移动j使 字符串满足条件 再向右移动 i 使得子字符串仍满足条件
  *  最后子字符串不再满足条件 向右移动j 循环上一过程
  */
+
 class Solution {
 public:
     string minWindow(string s, string t) {
