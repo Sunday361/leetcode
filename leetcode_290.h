@@ -17,13 +17,15 @@ public:
         while(getline(is, temp, ' ')) {
             v.push_back(temp);
         }
-        unordered_map<string, char> m;
+        unordered_map<string, char> m1;
+        unordered_map<char, string> m2;
         if (v.size() != pattern.size()) return false;
         for (int i = 0; i < v.size(); i++) {
-            if (m.find(v[i]) == m.end()) {
-                m[v[i]] = pattern[i];
+            if (m1.find(v[i]) == m1.end() && m2.find(pattern[i]) == m2.end()) {
+                m1[v[i]] = pattern[i];
+                m2[pattern[i]] = v[i];
             }else {
-                if (m[v[i]] != pattern[i]) return false;
+                if (m1[v[i]] != pattern[i] || m2[pattern[i]] != v[i]) return false;
                 continue;
             }
         }
