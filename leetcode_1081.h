@@ -22,7 +22,7 @@ public:
                     resSet.erase(resSet.find(res.back()));
                     res.pop_back();
                 }
-                res.push_back(s[i]);
+                res.push_back( s[i]);
             }
         }
         return res;
