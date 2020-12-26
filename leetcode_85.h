@@ -7,6 +7,10 @@
 
 #include "allheaders.h"
 /** 85. 最大矩形
+ * 将此题转换为第84题
+ * 用一个单调栈保存着 第j个矩形之前的所有比自身小的矩形所对应的序号,当 当前矩形小于等于栈顶矩形时
+ * 将栈顶出栈 并将其可以到达的最右边赋值为 j
+ * 最后 计算所有heights 所对应的 最左和最右 (right[i] - left[i] - 1) * heights[i] 求其中的最大值
  * */
 class Solution {
 public:
