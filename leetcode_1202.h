@@ -14,10 +14,8 @@ class Solution {
 public:
     vector<int> v;
     int findRoot(int k) {
-        while(v[k] != k) {
-            k = v[k];
-        }
-        return k;
+        /** 并查集 路径压缩 return k == v[k] ? k : (v[k] = findRoot(v[k])); */
+        return k == v[k] ? k : (v[k] = findRoot(v[k]));
     }
     string smallestStringWithSwaps(string s, vector<vector<int>>& pairs) {
         string ans = s;
@@ -28,9 +26,9 @@ public:
         for (int i = 0; i < pairs.size(); i++) {
             int r0 = findRoot(pairs[i][0]);
             int r1 = findRoot(pairs[i][1]);
+
             if (r0 != r1) {
                 v[r0] = r1;
-                v[pairs[i][0]] = r1;
             }
         }
 
