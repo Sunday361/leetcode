@@ -12,11 +12,13 @@ public:
     vector<vector<int>> dp;
     NumMatrix(vector<vector<int>>& matrix) {
         dp.resize(matrix.size() + 1);
-        for (auto& c : dp) c.resize(matrix[0].size() + 1, 0);
+        if (matrix.size() != 0) {
+            for (auto& c : dp) c.resize(matrix[0].size() + 1, 0);
 
-        for (int i = 1; i < dp.size(); i++) {
-            for (int j = 1; j < dp[0].size(); j++) {
-                dp[i][j] = dp[i - 1][j] + dp[i][j - 1] - dp[i - 1][j - 1] + matrix[i - 1][j - 1];
+            for (int i = 1; i < dp.size(); i++) {
+                for (int j = 1; j < dp[0].size(); j++) {
+                    dp[i][j] = dp[i - 1][j] + dp[i][j - 1] - dp[i - 1][j - 1] + matrix[i - 1][j - 1];
+                }
             }
         }
     }
@@ -25,5 +27,6 @@ public:
         return dp[row2 + 1][col2 + 1] + dp[row1][col1] - dp[row2 + 1][col1] - dp[row1][col2 + 1];
     }
 };
+
 
 #endif //LEETCODE_LEETCODE_304_H
