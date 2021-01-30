@@ -40,5 +40,45 @@ public:
         return 0;
     }
 };
+// 二分查找
+class Solution2 {
+public:
+    vector<vector<int>> direction{{1,0},{-1,0},{0,1},{0,-1}};
+    int swimInWater(vector<vector<int>>& grid) {
+        int n = grid.size();
+        int left = grid[0][0], right = grid[0][0];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                right = max(right, grid[i][j]);
+            }
+        }
+        while(left < right) {
+            int mid = (left + right) >> 1;
+            vector<int> flag(n * n, 0);
+            queue<vector<int>> q;
+            q.push({0, 0});
+            while(!q.empty()) {
+                auto f = q.front();
+                q.pop();
+                for (int i = 0; i < 4; i++) {
+                    int nx = direction[i][0] + f[0];
+                    int ny = direction[i][1] + f[1];
 
+                    if (nx >= 0 && ny >= 0 && nx < n && ny < n && flag[nx * n + ny] != 1 && grid[nx][ny] <= mid) {
+                        q.push({nx, ny});
+                        flag[nx * n + ny] = 1;
+                    }
+                }
+                if (flag[n * n - 1] == 1) {
+                    right = mid;
+                    break;
+                }
+            }
+            if (flag[n * n - 1] == 0) {
+                left = mid + 1;
+            }
+        }
+        return right;
+    }
+};
 #endif //LEETCODE_LEETCODE_778_H
