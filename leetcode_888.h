@@ -7,6 +7,7 @@
 
 #include "allheaders.h"
 /** 888. 公平的糖果棒交换
+ *  双指针
  * */
 class Solution {
 public:
