@@ -7,6 +7,13 @@
 
 #include "allheaders.h"
 /** 10. 正则表达式匹配
+ *
+ * 转移方程
+ * dp[i][j] #1 p[j - 1] == '*'
+ *           --  #1 p[j - 2] 和 s[i - 1] 匹配 : dp[i][j] = dp[i - 1][j]
+ *           --  #2 不匹配 dp[i][j] |= dp[i][j - 2]
+ *          #2 p[j - 1] != '*'
+ *           --  只有匹配才可以true : dp[i][j] = dp[i - 1][j - 1]
  * */
 class Solution {
 public:
@@ -25,7 +32,7 @@ public:
                         if (p[j - 2] == s[i - 1] || p[j - 2] == '.') {
                             dp[i][j] = dp[i][j] | dp[i - 1][j];
                         }
-                        dp[i][j] = dp[i][j] | dp[i][j - 2] | dp[i][j - 1];
+                        dp[i][j] = dp[i][j] | dp[i][j - 2];
                     }else if (p[j - 1] == s[i - 1] || p[j - 1] == '.'){
                         dp[i][j] = dp[i - 1][j - 1];
                     }
