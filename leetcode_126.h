@@ -6,6 +6,8 @@
 #define LEETCODE_LEETCODE_126_H
 
 #include "allheaders.h"
+/** 126. 单词接龙 II
+ * */
 const int INF = 1 << 20;
 
 class Solution {
