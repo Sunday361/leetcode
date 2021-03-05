@@ -7,6 +7,8 @@
 
 #include "allheaders.h"
 /** 84. 柱状图中最大的矩形
+ * 对于每个矩形 i, 用left[i], right[i] 存储其左右可以到达的范围
+ * 用 单调栈保存 当前矩形之前的矩形, 单调栈是一个递增的单调栈
  * */
 
 class Solution {
