@@ -6,6 +6,7 @@
 #define LEETCODE_LEETCODE_155_H
 #include "allheaders.h"
 /** 155. 最小栈
+ * 两个栈
  * */
 class MinStack {
 public:
