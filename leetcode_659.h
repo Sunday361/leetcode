@@ -2,7 +2,7 @@
 #define LEETCODE_LEETCODE_659_H
 
 #include "allheaders.h"
-/* 659. 分割数组为连续子序列
+/** 659. 分割数组为连续子序列
  * 1. 最大堆 用hash表保存数字出现的次数
  *
  * 2. 遍历数组 考虑将当前数字插入到已有数组 == 贪心算法
