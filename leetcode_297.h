@@ -7,53 +7,28 @@
 class Codec {
 public:
     string serialize(TreeNode* root) {
-        string res = "";
-        vector<TreeNode*> q;
-        if (!root) return res;
-        q.push_back(root);
-        while(!q.empty()) {
-            vector<TreeNode* > temp;
-            int flag = 0;
-            for (int i = 0; i < q.size(); i++) {
-                res.append((q[i] == NULL ? " " : to_string(q[i]->val)) + ",");
-                if (q[i]) {
-                    temp.push_back(q[i]->left);
-                    temp.push_back(q[i]->right);
-                    if (q[i]->left || q[i]->right) flag = 1;
-                }
-            }
-            if (flag) q = temp;
-            else q.clear();
+        if (!root) {
+            return "#";
         }
-        return res;
+        return to_string(root->val) + " " + serialize(root->left) + " " + serialize(root->right);
     }
-
-    TreeNode* deserialize(string data) {
-        vector<TreeNode*> up;
-        vector<string> tree;
-        istringstream is = istringstream(data);
-        char flag = ',';
+    TreeNode* deserialize(stringstream& ss) {
         string temp;
-        while(getline(is, temp, flag)) {
-            tree.push_back(temp);
+        ss >> temp;
+
+        if (temp == "#") {
+            return nullptr;
         }
-        if (tree.size() == 0) return NULL;
-        TreeNode* head = new TreeNode(stoi(tree[0]));
-        up.push_back(head);
-        int index = 1;
-        while(index < tree.size()) {
-            vector<TreeNode*> down;
-            for (int i = 0; i < up.size(); i++) {
-                up[i]->left = (tree[index] == " ") ? NULL : new TreeNode(stoi(tree[index]));
-                if (up[i]->left) down.push_back(up[i]->left);
-                index++;
-                up[i]->right = (tree[index] == " ") ? NULL : new TreeNode(stoi(tree[index]));
-                if (up[i]->right) down.push_back(up[i]->right);
-                index++;
-            }
-            up = down;
-        }
-        return head;
+
+        TreeNode* root = new TreeNode(stoi(temp));
+        root->left = deserialize(ss);
+        root->right = deserialize(ss);
+        return root;
+    }
+    TreeNode* deserialize(string data) {
+        stringstream ss(data);
+
+        return deserialize(ss);
     }
 };
 
