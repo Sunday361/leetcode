@@ -6,6 +6,7 @@
 #define LEETCODE_LEETCODE_815_H
 #include "allheaders.h"
 /** 815. 公交路线
+ * 广度搜索
  * */
 class Solution {
 public:
