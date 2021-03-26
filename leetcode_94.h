@@ -12,7 +12,7 @@ public:
     vector<int> inorderTraversal(TreeNode* root) {
         vector<TreeNode*> stk;
         vector<int> ans;
-        while (root != nullptr || !stk.empty()) {
+        while (root != nullptr || !stk.empty()) { // 栈不空或者指针不为空
             while (root != nullptr) {
                 stk.emplace_back(root);
                 root = root->left;
