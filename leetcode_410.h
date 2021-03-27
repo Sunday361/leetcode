@@ -15,6 +15,7 @@
 class Solution {
 public:
     long long right = 0, left = 0;
+    /// 检查将 nums 分割成值不超过 mid 的 n个子数组是否成立
     bool check(vector<int>& nums, int mid, int n) {
         int count = 1;
         int sum = 0;
