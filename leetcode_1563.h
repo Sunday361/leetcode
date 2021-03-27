@@ -9,18 +9,19 @@
  * */
 class Solution {
 public:
-    int dfs(int i, int j, vector<vector<int>>& dp, vector<int>& p) {
+    vector<vector<int>> dp;
+    int dfs(int i, int j, vector<int>& p) {
         if (i == j) return dp[i][j] = 0;
         if (dp[i][j] != -1) return dp[i][j];
         int v = 0;
         for (int k = i; k < j; k++) {
             if (p[j + 1] - p[k + 1] > p[k + 1] - p[i]) {
-                v = dfs(i, k, dp, p) + p[k + 1] - p[i];
+                v = dfs(i, k, p) + p[k + 1] - p[i];
             }else if (p[j + 1] - p[k + 1] < p[k + 1] - p[i]){
-                v = dfs(k + 1, j, dp, p) + p[j + 1] - p[k + 1];
+                v = dfs(k + 1, j, p) + p[j + 1] - p[k + 1];
             }else {
-                v = max(dfs(k + 1, j, dp, p) + p[j + 1] - p[k + 1],
-                        dfs(i, k, dp, p) + p[k + 1] - p[i]);
+                v = max(dfs(k + 1, j, p) + p[j + 1] - p[k + 1],
+                        dfs(i, k, p) + p[k + 1] - p[i]);
             }
             dp[i][j] = max(dp[i][j], v);
         }
@@ -34,8 +35,8 @@ public:
         for (int i = 0; i < n; i++) {
             preSum[i + 1] = preSum[i] + stoneValue[i];
         }
-        vector<vector<int>> dp(n, vector<int>(n, -1));
-        return dfs(0, n - 1, dp, preSum);
+        dp.resize(n, vector<int>(n, -1));
+        return dfs(0, n - 1, preSum);
     }
 };
 #endif //LEETCODE_LEETCODE_1563_H
